@@ -43,13 +43,13 @@ will be in the result object:
         "receipt": {
                 "original_purchase_date_pst": "2014-02-24 23:19:49 America/Los_Angeles",
                 "purchase_date_ms": "1393312789954",
-                "unique_identifier": "88abf2209323434771637ee22f0ee8b8341f14b4",
+                "unique_identifier": "78abf2209323434771637ee22f0ee8b8341f14b4",
                 "original_transaction_id": "1000000102526370",
                 "bvrs": "0.0.1",
                 "transaction_id": "1000000102526671",
                 "quantity": "1",
                 "unique_vendor_identifier": "206FED24-2EAB-4FC6-B946-4AF61086DF21",
-                "item_id": "820830285",
+                "item_id": "820817285",
                 "product_id": "001",
                 "purchase_date": "2014-02-25 07:19:49 Etc/GMT",
                 "original_purchase_date": "2014-02-25 07:19:49 Etc/GMT",
@@ -63,3 +63,7 @@ will be in the result object:
 In future versions, we will likely copy particular properties of the receipt into the top level of
 the result object, to match with other platforms. That way, you can use the same properties
 regardless of the platform used.
+
+## License
+
+MIT
