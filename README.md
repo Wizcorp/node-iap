@@ -56,13 +56,19 @@ will be in the result object:
                 "purchase_date_pst": "2014-02-24 23:19:49 America/Los_Angeles",
                 "bid": "test.myapp",
                 "original_purchase_date_ms": "1393312789954"
-        }
+        },
+        "transactionId": "1000000102526671",
+        "productId": "001",
+        "platform": "apple"
 }
 ```
 
-In future versions, we will likely copy particular properties of the receipt into the top level of
-the result object, to match with other platforms. That way, you can use the same properties
-regardless of the platform used.
+Regardless of the platform used, besides the platform-specific receipt, the following properties
+will be included:
+
+* transactionId, to uniquely identify this transaction.
+* productId, which specifies what was purchased.
+* platform, which is always the platform you passed.
 
 ## License
 
