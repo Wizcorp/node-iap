@@ -20,5 +20,13 @@ exports.verifyReceipt = function (platform, receipt, cb) {
 		return syncError(new Error('Platform ' + platform + ' not recognized'));
 	}
 
-	engine.verifyReceipt(receipt, cb);
+	engine.verifyReceipt(receipt, function (error, result) {
+		if (error) {
+			return cb(error);
+		}
+
+		result.platform = platform;
+
+		cb(null, result);
+	});
 };
