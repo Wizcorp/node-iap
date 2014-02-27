@@ -3,15 +3,15 @@ var platforms = {
 };
 
 
-exports.verifyReceipt = function (platform, receipt, cb) {
+exports.verifyPayment = function (platform, payment, cb) {
 	function syncError(error) {
 		process.nextTick(function () {
 			cb(error);
 		});
 	}
 
-	if (!receipt) {
-		return syncError(new Error('No receipt given'));
+	if (!payment) {
+		return syncError(new Error('No payment given'));
 	}
 
 	var engine = platforms[platform];
@@ -20,7 +20,7 @@ exports.verifyReceipt = function (platform, receipt, cb) {
 		return syncError(new Error('Platform ' + platform + ' not recognized'));
 	}
 
-	engine.verifyReceipt(receipt, function (error, result) {
+	engine.verifyPayment(payment, function (error, result) {
 		if (error) {
 			return cb(error);
 		}

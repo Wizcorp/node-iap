@@ -19,8 +19,13 @@ Only a single method is exposed to verify purchase receipts:
 var iap = require('iap');
 
 var platform = 'apple';
+var payment = {
+	receipt: 'receipt data',   // always required
+	productId: 'abc',
+	packageName: 'my.app'
+};
 
-iap.verifyReceipt(platform, receiptString, function (error, response) {
+iap.verifyPayment(platform, payment, function (error, response) {
 	/* your code */
 });
 ```
@@ -32,8 +37,15 @@ the next chapter for more information on the format.
 
 ### Apple
 
+**The payment object**
+
 The receipt string passed may be either the base64 string that Apple really wants, or the decoded
 receipt as returned by the iOS SDK (in which case it will be automatically base64 serialized).
+
+Both productId and packageName (bundle ID) are optional, but when provided will be tested against.
+If the receipt does not match the provided values, an error will be returned.
+
+**The response**
 
 The response passed back to your callback will also be Apple specific. The entire parsed receipt
 will be in the result object:
@@ -50,7 +62,7 @@ will be in the result object:
                 "quantity": "1",
                 "unique_vendor_identifier": "206FED24-2EAB-4FC6-B946-4AF61086DF21",
                 "item_id": "820817285",
-                "product_id": "001",
+                "product_id": "abc",
                 "purchase_date": "2014-02-25 07:19:49 Etc/GMT",
                 "original_purchase_date": "2014-02-25 07:19:49 Etc/GMT",
                 "purchase_date_pst": "2014-02-24 23:19:49 America/Los_Angeles",
@@ -58,7 +70,7 @@ will be in the result object:
                 "original_purchase_date_ms": "1393312789954"
         },
         "transactionId": "1000000102526671",
-        "productId": "001",
+        "productId": "abc",
         "platform": "apple"
 }
 ```

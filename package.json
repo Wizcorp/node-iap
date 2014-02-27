@@ -14,5 +14,8 @@
     "itunes"
   ],
   "author": "Ron Korving <rkorving@wizcorp.jp>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "0.0.8"
+  }
 }

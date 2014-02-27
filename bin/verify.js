@@ -1,15 +1,23 @@
 #!/usr/bin/env node
 
-var platform = process.argv[2];
-var receipt = process.argv[3];
+var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt'] });
 
-if (!platform || !receipt) {
-	throw new Error('Please provide a platform name, followed by a receipt string');
+if (argv.help) {
+	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\'');
+	process.exit(1);
 }
 
 var iap = require('../index.js');
 
-iap.verifyReceipt(platform, receipt, function (error, result) {
+var platform = 'apple';
+if (argv.platform) {
+	platform = argv.platform;
+	delete argv.platform;
+}
+
+var payment = argv;
+
+iap.verifyPayment(platform, payment, function (error, result) {
 	if (error) {
 		return console.log(error);
 	}
