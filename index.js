@@ -1,5 +1,6 @@
 var platforms = {
-	apple: require('./lib/apple')
+	apple: require('./lib/apple'),
+	google: require('./lib/apple')
 };
 
 

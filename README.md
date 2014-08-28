@@ -5,11 +5,15 @@ written by Paul Crawford, I wanted a pure JavaScript implementation of in-app pu
 I also wanted to add support for other app stores, and not just limit this to Apple. The `iap`
 module is that, and will be extended to app stores other than Apple's (pull requests welcome!).
 
+
+
 ## Installation
 
 ```sh
 npm install iap
 ```
+
+
 
 ## Usage
 
@@ -33,9 +37,11 @@ iap.verifyPayment(platform, payment, function (error, response) {
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
 
+
+
 ## Supported platforms
 
-### Apple
+### Apple Store
 
 **The payment object**
 
@@ -75,6 +81,14 @@ will be in the result object:
 }
 ```
 
+
+### Google Play
+
+**The payment object**
+
+**The response**
+
+
 Regardless of the platform used, besides the platform-specific receipt, the following properties
 will be included:
 
@@ -82,6 +96,28 @@ will be included:
 * productId, which specifies what was purchased.
 * platform, which is always the platform you passed.
 
+
+
 ## License
 
 MIT
+
+
+
+## References
+
+### Apple Store References
+
+
+### Google Play References
+ * https://bitbucket.org/gooroo175/google-play-purchase-validator/src/d88278c30df0d0dc51b852b7bcab5f40e3a30923/index.js?at=master
+ * https://github.com/machadogj/node-google-bigquery
+ * https://github.com/extrabacon/google-oauth-jwt/blob/master/lib/request-jwt.js
+
+ * https://developer.android.com/google/play/billing/gp-purchase-status-api.html
+ * https://developers.google.com/android-publisher/getting_started
+ * https://developers.google.com/android-publisher/authorization
+ * https://developers.google.com/accounts/docs/OAuth2ServiceAccount
+ * https://developers.google.com/android-publisher/api-ref/purchases/products
+ * https://developers.google.com/android-publisher/api-ref/purchases/products/get
+ * http://developer.android.com/google/play/billing/billing_testing.html
