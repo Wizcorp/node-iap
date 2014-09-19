@@ -41,7 +41,7 @@ the next chapter for more information on the format.
 
 ## Supported platforms
 
-### Apple Store
+### Apple
 
 **The payment object**
 
