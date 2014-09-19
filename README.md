@@ -3,7 +3,7 @@
 Inspired by the [iap_verifier](https://github.com/pcrawfor/iap_verifier/) CoffeeScript module
 written by Paul Crawford, I wanted a pure JavaScript implementation of in-app purchase verification.
 I also wanted to add support for other app stores, and not just limit this to Apple. The `iap`
-module is that, and will be extended to app stores other than Apple's (pull requests welcome!).
+module is exactly that. Pull requests to add support for other platforms are very welcome!
 
 
 
