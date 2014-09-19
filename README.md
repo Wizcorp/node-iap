@@ -26,7 +26,7 @@ var platform = 'apple';
 var payment = {
 	receipt: 'receipt data',   // always required
 	productId: 'abc',
-	packageName: 'my.app',
+	packageName: 'my.app'
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
