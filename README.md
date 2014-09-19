@@ -86,8 +86,36 @@ will be in the result object:
 
 **The payment object**
 
+The receipt string is the purchase token that google play returns to the frontend when a purchase is made.
+
+Both packageName and productId are compulsory and must be provided.
+
+Lastly Google Play requires 2 more additional parameters for authentication, iss (the client_email of your API service
+account) and key (the private_key of you API service account). Please check the following
+[reference](https://developers.google.com/accounts/docs/OAuth2ServiceAccount)
+
 **The response**
 
+The response passed back to your callback will also be Google Play specific. The entire parsed response will be in the
+receipt sub-object.
+
+```json
+{
+        "receipt": {
+                kind: 'androidpublisher#productPurchase',
+                purchaseTimeMillis: '1410835105408',
+                purchaseState: 0,
+                consumptionState: 1,
+                developerPayload: ''
+        },
+        transactionId: 'ghbbkjheodjohkipdmlkjajn',
+        productId: 'abc',
+        platform: 'google'
+}
+```
+
+
+### All Platforms
 
 Regardless of the platform used, besides the platform-specific receipt, the following properties
 will be included:
