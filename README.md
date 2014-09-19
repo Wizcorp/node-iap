@@ -86,11 +86,11 @@ will be in the result object:
 
 **The payment object**
 
-The receipt string is the purchase token that google play returns to the frontend when a purchase is made.
+The receipt string is the purchase token that Google Play returns to the mobile application when a purchase is made.
 
-Both packageName and productId are compulsory and must be provided.
+Both packageName and productId are compulsory.
 
-Lastly Google Play requires 2 more additional parameters for authentication, iss (the client_email of your API service
+Lastly Google Play requires 2 additional parameters for authentication, iss (the client_email of your API service
 account) and key (the private_key of you API service account). Please check the following
 [reference](https://developers.google.com/accounts/docs/OAuth2ServiceAccount)
 
@@ -102,15 +102,15 @@ receipt sub-object.
 ```json
 {
         "receipt": {
-                kind: 'androidpublisher#productPurchase',
-                purchaseTimeMillis: '1410835105408',
-                purchaseState: 0,
-                consumptionState: 1,
-                developerPayload: ''
+                "kind": "androidpublisher#productPurchase",
+                "purchaseTimeMillis": "1410835105408",
+                "purchaseState": 0,
+                "consumptionState": 1,
+                "developerPayload": ""
         },
-        transactionId: 'ghbbkjheodjohkipdmlkjajn',
-        productId: 'abc',
-        platform: 'google'
+        "transactionId": "ghbbkjheodjokkipdmlkjajn.AO-J1OwfrtpJd2fkzzZqv7i107yPmaUD9Vauf9g5evoqbIVzdOGYyJTSEMhSTGFkCOzGtWccxe17dtbS1c16M2OryJZPJ3z-eYhEJYiSLHxEZLnUJ8yfBmI",
+        "productId": "abc",
+        "platform": "google"
 }
 ```
 
@@ -134,7 +134,14 @@ MIT
 
 ## References
 
-### Apple Store References
+### Apple References
+**Code Inspiration**
+
+ * https://github.com/pcrawfor/iap_verifier
+
+**API Reference**
+
+ * 	https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
 
 
 ### Google Play References
