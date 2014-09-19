@@ -5,7 +5,7 @@ var path = require('path');
 var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'keyFile'] });
 
 if (argv.help) {
-	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --keyFile=\'google play JSON key object\'');
+	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --keyFile=\'Google Play JSON key file\'');
 	process.exit(1);
 }
 
