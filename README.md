@@ -86,9 +86,9 @@ will be in the result object:
 
 **The payment object**
 
-The receipt string is the purchase token that google play returns to the frontend when a purchase is made.
+The receipt string is the purchase token that Google Play returns to the mobile application when a purchase is made.
 
-Both packageName and productId are compulsory and must be provided.
+Both packageName and productId are compulsory.
 
 Lastly you must provide `keyObject` which is the Google API Service Account JSON key file linked to your Google Play
 account for authentication. This property can be either a string, file buffer or an object. If provided a string or file
