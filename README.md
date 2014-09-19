@@ -26,7 +26,7 @@ var platform = 'apple';
 var payment = {
 	receipt: 'receipt data',   // always required
 	productId: 'abc',
-	packageName: 'my.app'
+	packageName: 'my.app',
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
@@ -86,13 +86,13 @@ will be in the result object:
 
 **The payment object**
 
-The receipt string is the purchase token that Google Play returns to the mobile application when a purchase is made.
+The receipt string is the purchase token that google play returns to the frontend when a purchase is made.
 
-Both packageName and productId are compulsory.
+Both packageName and productId are compulsory and must be provided.
 
-Lastly Google Play requires 2 additional parameters for authentication, iss (the client_email of your API service
-account) and key (the private_key of you API service account). Please check the following
-[reference](https://developers.google.com/accounts/docs/OAuth2ServiceAccount)
+Lastly you must provide `keyObject` which is the Google API Service Account JSON key file linked to your Google Play
+account for authentication. This property can be either a string, file buffer or an object. If provided a string or file
+buffer, the call will automatically parse it into an object for use.
 
 **The response**
 
