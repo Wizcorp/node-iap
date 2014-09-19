@@ -5,11 +5,15 @@ written by Paul Crawford, I wanted a pure JavaScript implementation of in-app pu
 I also wanted to add support for other app stores, and not just limit this to Apple. The `iap`
 module is that, and will be extended to app stores other than Apple's (pull requests welcome!).
 
+
+
 ## Installation
 
 ```sh
 npm install iap
 ```
+
+
 
 ## Usage
 
@@ -32,6 +36,8 @@ iap.verifyPayment(platform, payment, function (error, response) {
 
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
+
+
 
 ## Supported platforms
 
@@ -75,6 +81,42 @@ will be in the result object:
 }
 ```
 
+
+### Google Play
+
+**The payment object**
+
+The receipt string is the purchase token that Google Play returns to the mobile application when a purchase is made.
+
+Both packageName and productId are compulsory.
+
+Lastly you must provide `keyObject` which is the Google API Service Account JSON key file linked to your Google Play
+account for authentication. This property can be either a string, file buffer or an object. If provided a string or file
+buffer, the call will automatically parse it into an object for use.
+
+**The response**
+
+The response passed back to your callback will also be Google Play specific. The entire parsed response will be in the
+receipt sub-object.
+
+```json
+{
+        "receipt": {
+                "kind": "androidpublisher#productPurchase",
+                "purchaseTimeMillis": "1410835105408",
+                "purchaseState": 0,
+                "consumptionState": 1,
+                "developerPayload": ""
+        },
+        "transactionId": "ghbbkjheodjokkipdmlkjajn.AO-J1OwfrtpJd2fkzzZqv7i107yPmaUD9Vauf9g5evoqbIVzdOGYyJTSEMhSTGFkCOzGtWccxe17dtbS1c16M2OryJZPJ3z-eYhEJYiSLHxEZLnUJ8yfBmI",
+        "productId": "abc",
+        "platform": "google"
+}
+```
+
+
+### All Platforms
+
 Regardless of the platform used, besides the platform-specific receipt, the following properties
 will be included:
 
@@ -82,6 +124,47 @@ will be included:
 * productId, which specifies what was purchased.
 * platform, which is always the platform you passed.
 
+
+
 ## License
 
 MIT
+
+
+
+## References
+
+### Apple References
+**Code Inspiration**
+
+ * https://github.com/pcrawfor/iap_verifier
+
+**API Reference**
+
+ * 	https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+
+
+### Google Play References
+**Code Inspiration**
+
+ * https://bitbucket.org/gooroo175/google-play-purchase-validator/src/d88278c30df0d0dc51b852b7bcab5f40e3a30923/index.js?at=master
+ * https://github.com/machadogj/node-google-bigquery
+ * https://github.com/extrabacon/google-oauth-jwt/blob/master/lib/request-jwt.js
+ 
+**API Reference**
+
+ * https://developer.android.com/google/play/billing/gp-purchase-status-api.html
+ * https://developers.google.com/android-publisher/
+ * https://developers.google.com/android-publisher/getting_started
+ * https://developers.google.com/android-publisher/authorization
+ * https://developers.google.com/accounts/docs/OAuth2ServiceAccount
+ * https://developers.google.com/android-publisher/api-ref/purchases/products
+ * https://developers.google.com/android-publisher/api-ref/purchases/products/get
+ * http://developer.android.com/google/play/billing/billing_testing.html
+ * http://stackoverflow.com/questions/24323207/use-service-account-to-verify-google-inapppurchase
+ 
+**Receipt Generation**
+
+ * http://developer.android.com/training/in-app-billing/preparing-iab-app.html
+ * http://developer.android.com/tools/publishing/app-signing.html
+ * http://developer.android.com/google/play/billing/api.html#managed

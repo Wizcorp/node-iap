@@ -10,11 +10,6 @@ if (argv.help) {
 var iap = require('../index.js');
 
 var platform = 'apple';
-if (argv.platform) {
-	platform = argv.platform;
-	delete argv.platform;
-}
-
 var payment = argv;
 
 iap.verifyPayment(platform, payment, function (error, result) {
