@@ -110,14 +110,26 @@ MIT
 
 
 ### Google Play References
+**Code Inspiration**
+
  * https://bitbucket.org/gooroo175/google-play-purchase-validator/src/d88278c30df0d0dc51b852b7bcab5f40e3a30923/index.js?at=master
  * https://github.com/machadogj/node-google-bigquery
  * https://github.com/extrabacon/google-oauth-jwt/blob/master/lib/request-jwt.js
+ 
+**API Reference**
 
  * https://developer.android.com/google/play/billing/gp-purchase-status-api.html
+ * https://developers.google.com/android-publisher/
  * https://developers.google.com/android-publisher/getting_started
  * https://developers.google.com/android-publisher/authorization
  * https://developers.google.com/accounts/docs/OAuth2ServiceAccount
  * https://developers.google.com/android-publisher/api-ref/purchases/products
  * https://developers.google.com/android-publisher/api-ref/purchases/products/get
  * http://developer.android.com/google/play/billing/billing_testing.html
+ * http://stackoverflow.com/questions/24323207/use-service-account-to-verify-google-inapppurchase
+ 
+**Receipt Generation**
+
+ * http://developer.android.com/training/in-app-billing/preparing-iab-app.html
+ * http://developer.android.com/tools/publishing/app-signing.html
+ * http://developer.android.com/google/play/billing/api.html#managed
