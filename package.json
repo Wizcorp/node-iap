@@ -1,6 +1,6 @@
 {
   "name": "iap",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "In-app purchases for Node.js (Apple, Google)",
   "main": "index.js",
   "scripts": {
