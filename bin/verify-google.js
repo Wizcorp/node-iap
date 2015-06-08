@@ -2,10 +2,10 @@
 
 var fs = require('fs');
 var path = require('path');
-var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'keyFile'] });
+var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'keyFile', 'subscription'] });
 
 if (argv.help) {
-	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --keyFile=\'Google Play JSON key file\'');
+	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --keyFile=\'Google Play JSON key file\' --subscription=true');
 	process.exit(1);
 }
 
