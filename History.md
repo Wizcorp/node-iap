@@ -1,3 +1,7 @@
+# v0.4.0
+
+- Cache Google access tokens for improved throughput [Alaneor]
+
 # v0.3.3
 
 - Start writing a changelog [ronkorving]
