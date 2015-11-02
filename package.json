@@ -4,7 +4,7 @@
   "description": "In-app purchases for Node.js (Apple, Google)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jshint ."
   },
   "repository": {
     "type": "git",
@@ -26,8 +26,7 @@
     "form-urlencoded": "0.0.6"
   },
   "devDependencies": {
-    "jsdoc": "3.3.0-alpha4",
     "jshint": "2.5.0",
-    "mocha": "1.20.1"
+    "pre-commit": "^1.1.2"
   }
 }
