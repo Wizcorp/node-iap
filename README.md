@@ -26,7 +26,8 @@ var platform = 'apple';
 var payment = {
 	receipt: 'receipt data',   // always required
 	productId: 'abc',
-	packageName: 'my.app'
+	packageName: 'my.app',
+	subscription: true	// optional, if google play subscription
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
