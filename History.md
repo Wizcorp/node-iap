@@ -1,3 +1,7 @@
+# v0.5.0
+
+- Added support for Google subscriptions [Alaneor]
+
 # v0.4.0
 
 - Cache Google access tokens for improved throughput [Alaneor]
