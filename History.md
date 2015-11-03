@@ -1,6 +1,6 @@
 # v0.5.0
 
-- Added support for Google subscriptions [Alaneor]
+- Added support for Google subscriptions [kelchy]
 
 # v0.4.0
 
