@@ -78,6 +78,7 @@ will be in the result object:
         "transactionId": "1000000102526671",
         "productId": "abc",
         "platform": "apple"
+        "environment": "production"
 }
 ```
 
