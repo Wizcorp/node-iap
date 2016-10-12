@@ -52,6 +52,9 @@ receipt as returned by the iOS SDK (in which case it will be automatically base6
 Both productId and packageName (bundle ID) are optional, but when provided will be tested against.
 If the receipt does not match the provided values, an error will be returned.
 
+To verify auto-renewable subscriptions you need to provide `secret` field that contains your
+In-App Purchase Shared Secret.
+
 **The response**
 
 The response passed back to your callback will also be Apple specific. The entire parsed receipt

@@ -4,7 +4,7 @@ var platforms = {
 };
 
 
-exports.verifyPayment = function (platform, payment, cb) {
+exports.verifyPayment = function (platform, payment, cb, sandbox) {
 	function syncError(error) {
 		process.nextTick(function () {
 			cb(error);
@@ -29,5 +29,5 @@ exports.verifyPayment = function (platform, payment, cb) {
 		result.platform = platform;
 
 		cb(null, result);
-	});
+	}, sandbox);
 };
