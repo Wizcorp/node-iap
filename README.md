@@ -24,7 +24,7 @@ var payment = {
 	productId: 'abc',
 	packageName: 'my.app',
 	subscription: true,	// optional, if google play subscription
-	devToken: 'developer id' // optional, if roku subscription
+	devToken: 'developer id' // required, if roku subscription
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
