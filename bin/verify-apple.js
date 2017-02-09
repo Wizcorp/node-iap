@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt'] });
+var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'secret'] });
 
 if (argv.help) {
-	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\'');
+	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --secret=\'shared secret\'');
 	process.exit(1);
 }
 
