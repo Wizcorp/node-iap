@@ -59,7 +59,7 @@ or `latestReceiptInfo` property.
 
 ```json
 {
-        "receipt": {
+	"receipt": {
                 "original_purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
                 "purchase_date_ms": "1477802802000",
                 "unique_identifier": "78abf2209323434771637ee22f0ee8b8341f14b4",
@@ -75,45 +75,45 @@ or `latestReceiptInfo` property.
                 "purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
                 "bid": "test.myapp",
                 "original_purchase_date_ms": "1477781217000",
-				"in_app": [
-					{
-						"quantity": "1",
-						"product_id": "abc",
-						"transaction_id": "120000265421254",
-						"original_transaction_id": "120000257973875",
-						"purchase_date": "2016-10-30 04:46:42 Etc/GMT",
-						"purchase_date_ms": "1477802802000",
-						"purchase_date_pst": "2016-10-29 21:46:42 America/Los_Angeles",
-						"original_purchase_date": "2016-10-29 22:46:57 Etc/GMT",
-						"original_purchase_date_ms": "1477781217000",
-						"original_purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
-						"expires_date": "2016-11-30 05:46:42 Etc/GMT",
-						"expires_date_ms": "1480484802000",
-						"expires_date_pst": "2016-11-29 21:46:42 America/Los_Angeles",
-						"web_order_line_item_id": "820817285",
-						"is_trial_period": "false"
-					},
-				]
-        },
-		"latestReceiptInfo": [
+		"in_app": [
 			{
 				"quantity": "1",
 				"product_id": "abc",
-				"transaction_id": "120000233230473",
-				"original_transaction_id": "120000233230473",
-				"purchase_date": "2016-06-12 22:36:58 Etc/GMT",
-				"purchase_date_ms": "1465771018000",
-				"purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
-				"original_purchase_date": "2016-06-12 22:36:58 Etc/GMT",
-				"original_purchase_date_ms": "1465771018000",
-				"original_purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
-				"expires_date": "2016-07-12 22:36:58 Etc/GMT",
-				"expires_date_ms": "1468363018000",
-				"expires_date_pst": "2016-07-12 15:36:58 America/Los_Angeles",
-				"web_order_line_item_id": "120000034778618",
-				"is_trial_period": "true"
+				"transaction_id": "120000265421254",
+				"original_transaction_id": "120000257973875",
+				"purchase_date": "2016-10-30 04:46:42 Etc/GMT",
+				"purchase_date_ms": "1477802802000",
+				"purchase_date_pst": "2016-10-29 21:46:42 America/Los_Angeles",
+				"original_purchase_date": "2016-10-29 22:46:57 Etc/GMT",
+				"original_purchase_date_ms": "1477781217000",
+				"original_purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
+				"expires_date": "2016-11-30 05:46:42 Etc/GMT",
+				"expires_date_ms": "1480484802000",
+				"expires_date_pst": "2016-11-29 21:46:42 America/Los_Angeles",
+				"web_order_line_item_id": "820817285",
+				"is_trial_period": "false"
 			},
-		],
+		]
+	},
+	"latestReceiptInfo": [
+		{
+			"quantity": "1",
+			"product_id": "abc",
+			"transaction_id": "120000233230473",
+			"original_transaction_id": "120000233230473",
+			"purchase_date": "2016-06-12 22:36:58 Etc/GMT",
+			"purchase_date_ms": "1465771018000",
+			"purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
+			"original_purchase_date": "2016-06-12 22:36:58 Etc/GMT",
+			"original_purchase_date_ms": "1465771018000",
+			"original_purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
+			"expires_date": "2016-07-12 22:36:58 Etc/GMT",
+			"expires_date_ms": "1468363018000",
+			"expires_date_pst": "2016-07-12 15:36:58 America/Los_Angeles",
+			"web_order_line_item_id": "120000034778618",
+			"is_trial_period": "true"
+		},
+	],
         "transactionId": "120000233230473",
         "productId": "abc",
         "platform": "apple",
