@@ -5,15 +5,11 @@ written by Paul Crawford, I wanted a pure JavaScript implementation of in-app pu
 I also wanted to add support for other app stores, and not just limit this to Apple. The `iap`
 module is exactly that. Pull requests to add support for other platforms are very welcome!
 
-
-
 ## Installation
 
 ```sh
 npm install iap
 ```
-
-
 
 ## Usage
 
@@ -39,8 +35,6 @@ iap.verifyPayment(platform, payment, function (error, response) {
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
 
-
-
 ## Supported platforms
 
 ### Apple
@@ -59,34 +53,73 @@ contains your In-App Purchase Shared Secret
 **The response**
 
 The response passed back to your callback will also be Apple specific. The entire parsed receipt
-will be in the result object:
+will be in the result object. Applications that support monthly and yearly
+subscription access will represent auto-renewable terms in either the `in_app`
+or `latestReceiptInfo` property.
 
 ```json
 {
         "receipt": {
-                "original_purchase_date_pst": "2014-02-24 23:19:49 America/Los_Angeles",
-                "purchase_date_ms": "1393312789954",
+                "original_purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
+                "purchase_date_ms": "1477802802000",
                 "unique_identifier": "78abf2209323434771637ee22f0ee8b8341f14b4",
-                "original_transaction_id": "1000000102526370",
+                "original_transaction_id": "120000257973875",
                 "bvrs": "0.0.1",
-                "transaction_id": "1000000102526671",
+                "transaction_id": "120000265421254",
                 "quantity": "1",
                 "unique_vendor_identifier": "206FED24-2EAB-4FC6-B946-4AF61086DF21",
                 "item_id": "820817285",
                 "product_id": "abc",
-                "purchase_date": "2014-02-25 07:19:49 Etc/GMT",
-                "original_purchase_date": "2014-02-25 07:19:49 Etc/GMT",
-                "purchase_date_pst": "2014-02-24 23:19:49 America/Los_Angeles",
+                "purchase_date": "2016-10-29 22:46:57 Etc/GMT",
+                "original_purchase_date": "2016-10-29 22:46:57 Etc/GMT",
+                "purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
                 "bid": "test.myapp",
-                "original_purchase_date_ms": "1393312789954"
+                "original_purchase_date_ms": "1477781217000"
+				"in_app": [
+					{
+						"quantity": "1",
+						"product_id": "abc",
+						"transaction_id": "120000265421254",
+						"original_transaction_id": "120000257973875",
+						"purchase_date": "2016-10-30 04:46:42 Etc/GMT",
+						"purchase_date_ms": "1477802802000",
+						"purchase_date_pst": "2016-10-29 21:46:42 America/Los_Angeles",
+						"original_purchase_date": "2016-10-29 22:46:57 Etc/GMT",
+						"original_purchase_date_ms": "1477781217000",
+						"original_purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
+						"expires_date": "2016-11-30 05:46:42 Etc/GMT",
+						"expires_date_ms": "1480484802000",
+						"expires_date_pst": "2016-11-29 21:46:42 America/Los_Angeles",
+						"web_order_line_item_id": "820817285",
+						"is_trial_period": "false"
+					},
+				]
         },
-        "transactionId": "1000000102526671",
+		"latestReceiptInfo": [
+			{
+				"quantity": "1",
+				"product_id": "abc",
+				"transaction_id": "120000233230473",
+				"original_transaction_id": "120000233230473",
+				"purchase_date": "2016-06-12 22:36:58 Etc/GMT",
+				"purchase_date_ms": "1465771018000",
+				"purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
+				"original_purchase_date": "2016-06-12 22:36:58 Etc/GMT",
+				"original_purchase_date_ms": "1465771018000",
+				"original_purchase_date_pst": "2016-06-12 15:36:58 America/Los_Angeles",
+				"expires_date": "2016-07-12 22:36:58 Etc/GMT",
+				"expires_date_ms": "1468363018000",
+				"expires_date_pst": "2016-07-12 15:36:58 America/Los_Angeles",
+				"web_order_line_item_id": "120000034778618",
+				"is_trial_period": "true"
+			},
+		],
+        "transactionId": "120000233230473",
         "productId": "abc",
         "platform": "apple",
         "environment": "production"
 }
 ```
-
 
 ### Google Play
 
@@ -120,7 +153,6 @@ receipt sub-object.
 }
 ```
 
-
 ### All Platforms
 
 Regardless of the platform used, besides the platform-specific receipt, the following properties
@@ -130,13 +162,9 @@ will be included:
 * productId, which specifies what was purchased.
 * platform, which is always the platform you passed.
 
-
-
 ## License
 
 MIT
-
-
 
 ## References
 
