@@ -114,10 +114,10 @@ or `latestReceiptInfo` property.
 			"is_trial_period": "true"
 		},
 	],
-        "transactionId": "120000233230473",
-        "productId": "abc",
-        "platform": "apple",
-        "environment": "production"
+	"transactionId": "120000233230473",
+	"productId": "abc",
+	"platform": "apple",
+	"environment": "production"
 }
 ```
 
