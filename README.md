@@ -74,7 +74,7 @@ or `latestReceiptInfo` property.
                 "original_purchase_date": "2016-10-29 22:46:57 Etc/GMT",
                 "purchase_date_pst": "2016-10-29 15:46:57 America/Los_Angeles",
                 "bid": "test.myapp",
-                "original_purchase_date_ms": "1477781217000"
+                "original_purchase_date_ms": "1477781217000",
 				"in_app": [
 					{
 						"quantity": "1",
