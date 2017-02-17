@@ -1,4 +1,5 @@
 var platforms = {
+	amazon: require('./lib/amazon'),
 	apple: require('./lib/apple'),
 	google: require('./lib/google')
 };
