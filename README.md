@@ -20,12 +20,12 @@ var iap = require('iap');
 
 var platform = 'apple';
 var payment = {
-	receipt: 'receipt data',   // always required
+	receipt: 'receipt data', // always required
 	productId: 'abc',
 	packageName: 'my.app',
 	secret: 'password',
 	subscription: true,	// optional, if google play subscription
-	devToken: 'developer id' // required, if roku subscription
+	devToken: 'developer id' // required, if roku
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
