@@ -5,15 +5,11 @@ written by Paul Crawford, I wanted a pure JavaScript implementation of in-app pu
 I also wanted to add support for other app stores, and not just limit this to Apple. The `iap`
 module is exactly that. Pull requests to add support for other platforms are very welcome!
 
-
-
 ## Installation
 
 ```sh
 npm install iap
 ```
-
-
 
 ## Usage
 
@@ -24,24 +20,58 @@ var iap = require('iap');
 
 var platform = 'apple';
 var payment = {
-	receipt: 'receipt data',   // always required
+	receipt: 'receipt data', // always required
 	productId: 'abc',
 	packageName: 'my.app',
 	secret: 'password',
-	subscription: true	// optional, if google play subscription
+	subscription: true,	// optional, if google play subscription
+	userId: 'user id' // required, if amazon
 };
 
 iap.verifyPayment(platform, payment, function (error, response) {
 	/* your code */
 });
 ```
-
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
 
-
-
 ## Supported platforms
+
+### Amazon 
+
+**The payment object**
+
+The receipt string represents the transaction returned from a channel or product
+purchase.
+
+A Shared secret and user ID is required.
+
+**The response**
+
+The response passed back to your callback will also be Amazon specific. The entire parsed receipt
+will be in the result object:
+
+```json
+{
+	"receipt": {
+		"betaProduct": false,
+		"cancelDate": null,
+		"parentProductId": null,
+		"productId": "com.amazon.iapsamplev2.gold_medal",
+		"productType": "CONSUMABLE",
+		"purchaseDate": 1399070221749,
+		"quantity": 1,
+		"receiptId": "wE1EG1gsEZI9q9UnI5YoZ2OxeoVKPdR5bvPMqyKQq5Y=:1:11",
+		"renewalDate": null,
+		"term": null,
+		"termSku": null,
+		"testTransaction": false
+	},
+	"transactionId": "wE1EG1gsEZI9q9UnI5YoZ2OxeoVKPdR5bvPMqyKQq5Y=:1:11",
+	"productId": "com.amazon.iapsamplev2.gold_medal",
+	"platform": "amazon"
+}
+```
 
 ### Apple
 
@@ -87,7 +117,6 @@ will be in the result object:
 }
 ```
 
-
 ### Google Play
 
 **The payment object**
@@ -120,7 +149,6 @@ receipt sub-object.
 }
 ```
 
-
 ### All Platforms
 
 Regardless of the platform used, besides the platform-specific receipt, the following properties
@@ -130,15 +158,20 @@ will be included:
 * productId, which specifies what was purchased.
 * platform, which is always the platform you passed.
 
-
-
 ## License
 
 MIT
 
-
-
 ## References
+
+### Amazon References
+**Code Inspiration**
+
+ * https://github.com/may215/amazon_iap 
+
+**API Reference**
+
+ * https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/verifying-receipts-in-iap	
 
 ### Apple References
 **Code Inspiration**
@@ -148,7 +181,6 @@ MIT
 **API Reference**
 
  * 	https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
-
 
 ### Google Play References
 **Code Inspiration**
