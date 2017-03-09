@@ -1,6 +1,7 @@
 var platforms = {
 	apple: require('./lib/apple'),
-	google: require('./lib/google')
+	google: require('./lib/google'),
+	roku: require('./lib/roku')
 };
 
 
