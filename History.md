@@ -1,3 +1,8 @@
+# v0.6.0
+
+- Support Roku purchase verification [KLVTZ]
+- When shared secret is provided for an Apple subscription, use it when accessing receipt information [KLVTZ]
+
 # v0.5.0
 
 - Added support for Google subscriptions [kelchy]
