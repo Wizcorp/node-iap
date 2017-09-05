@@ -33,6 +33,7 @@ iap.verifyPayment(platform, payment, function (error, response) {
 	/* your code */
 });
 ```
+
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
 
@@ -247,7 +248,6 @@ will be included:
 MIT
 
 ## References
-<<<<<<< HEAD
 
 ### Amazon References
 **Code Inspiration**
