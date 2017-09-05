@@ -1,3 +1,13 @@
+# v0.7.0
+
+- Apple: latestReceiptInfo added to subscription receipts.
+  Receipt history is sorted by timestamp. [KLVTZ]
+
+# v0.6.0
+
+- Support Roku purchase verification [KLVTZ]
+- When shared secret is provided for an Apple subscription, use it when accessing receipt information [KLVTZ]
+
 # v0.5.0
 
 - Added support for Google subscriptions [kelchy]
