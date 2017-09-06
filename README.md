@@ -25,6 +25,7 @@ var payment = {
 	packageName: 'my.app',
 	secret: 'password',
 	subscription: true,	// optional, if google play subscription
+	userId: 'user id', // required, if amazon
 	devToken: 'developer id' // required, if roku
 };
 
@@ -37,6 +38,42 @@ The receipt you pass must conform to the requirements of the backend you are ver
 the next chapter for more information on the format.
 
 ## Supported platforms
+
+### Amazon 
+
+**The payment object**
+
+The receipt string represents the transaction returned from a channel or product
+purchase.
+
+A Shared secret and user ID is required.
+
+**The response**
+
+The response passed back to your callback will also be Amazon specific. The entire parsed receipt
+will be in the result object:
+
+```json
+{
+	"receipt": {
+		"betaProduct": false,
+		"cancelDate": null,
+		"parentProductId": null,
+		"productId": "com.amazon.iapsamplev2.gold_medal",
+		"productType": "CONSUMABLE",
+		"purchaseDate": 1399070221749,
+		"quantity": 1,
+		"receiptId": "wE1EG1gsEZI9q9UnI5YoZ2OxeoVKPdR5bvPMqyKQq5Y=:1:11",
+		"renewalDate": null,
+		"term": null,
+		"termSku": null,
+		"testTransaction": false
+	},
+	"transactionId": "wE1EG1gsEZI9q9UnI5YoZ2OxeoVKPdR5bvPMqyKQq5Y=:1:11",
+	"productId": "com.amazon.iapsamplev2.gold_medal",
+	"platform": "amazon"
+}
+```
 
 ### Apple
 
@@ -212,6 +249,15 @@ MIT
 
 ## References
 
+### Amazon References
+**Code Inspiration**
+
+ * https://github.com/may215/amazon_iap 
+
+**API Reference**
+
+ * https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/verifying-receipts-in-iap	
+
 ### Apple References
 **Code Inspiration**
 
@@ -220,7 +266,6 @@ MIT
 **API Reference**
 
  * 	https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
-
 
 ### Google Play References
 **Code Inspiration**
