@@ -1,3 +1,7 @@
+# v0.8.0
+
+- Amazon: Support Amazon purchase verification [KLVTZ]
+
 # v0.7.0
 
 - Apple: latestReceiptInfo added to subscription receipts.
