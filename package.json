@@ -1,7 +1,7 @@
 {
   "name": "iap",
   "version": "0.8.0",
-  "description": "In-app purchases for Node.js (Apple, Google, Roku)",
+  "description": "In-app purchases for Node.js (Apple, Google, Amazon, Roku)",
   "main": "index.js",
   "scripts": {
     "test": "jshint ."
