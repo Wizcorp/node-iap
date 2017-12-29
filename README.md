@@ -88,6 +88,15 @@ If the receipt does not match the provided values, an error will be returned.
 To verify auto-renewable subscriptions you need to provide `secret` field that
 contains your In-App Purchase Shared Secret
 
+Apple supports returning only the most recent transaction for auto-renewable subscriptions via their (exclude-old-transactions)[https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html] option. This can greatly save on bandwidth for users that have more than one transaction. To enable this, pass `excludeOldTransactions` on the payment object:
+
+```javascript
+let payment = {
+  ...
+  excludeOldTransactions: true
+}
+```
+
 **The response**
 
 The response passed back to your callback will also be Apple specific. The entire parsed receipt
