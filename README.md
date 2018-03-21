@@ -25,6 +25,7 @@ var payment = {
 	packageName: 'my.app',
 	secret: 'password',
 	subscription: true,	// optional, if google play subscription
+	keyObject: {}, // required, if google
 	userId: 'user id', // required, if amazon
 	devToken: 'developer id' // required, if roku
 };
@@ -39,7 +40,7 @@ the next chapter for more information on the format.
 
 ## Supported platforms
 
-### Amazon 
+### Amazon
 
 **The payment object**
 
@@ -248,9 +249,15 @@ parsed receipt will be in the result object:
 Regardless of the platform used, besides the platform-specific receipt, the following properties
 will be included:
 
-* transactionId, to uniquely identify this transaction.
-* productId, which specifies what was purchased.
-* platform, which is always the platform you passed.
+| Property | Type | Description |
+| --- | --- | --- |
+| receipt | object | Data returned by platforms |
+| platform | string | One of: 'apple', 'google', 'amazon', 'roku' |
+| productId | string | Id of the product |
+| transactionId | string | Id to uniquely identify transaction |
+| purchaseDate | int | Date of purchase in millis  |
+| expirationDate | int | Date of expiration in millis |
+
 
 ## License
 
@@ -261,11 +268,11 @@ MIT
 ### Amazon References
 **Code Inspiration**
 
- * https://github.com/may215/amazon_iap 
+ * https://github.com/may215/amazon_iap
 
 **API Reference**
 
- * https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/verifying-receipts-in-iap	
+ * https://developer.amazon.com/public/apis/earn/in-app-purchasing/docs-v2/verifying-receipts-in-iap
 
 ### Apple References
 **Code Inspiration**
