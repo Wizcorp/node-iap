@@ -1,3 +1,5 @@
+'use strict';
+
 var platforms = {
 	amazon: require('./lib/amazon'),
 	apple: require('./lib/apple'),
