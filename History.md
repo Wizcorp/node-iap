@@ -1,3 +1,8 @@
+# v0.9.0
+
+- iOS: Support single entry latest_receipt_info [markgardner]
+- iOS: Support exclude-old-transactions [AndrewBarba]
+
 # v0.8.0
 
 - Amazon: Support Amazon purchase verification [KLVTZ]
