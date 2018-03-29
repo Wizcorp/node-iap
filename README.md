@@ -279,7 +279,7 @@ MIT
 ### Google Play References
 **Code Inspiration**
 
- * https://bitbucket.org/gooroo175/google-play-purchase-validator/src/d88278c30df0d0dc51b852b7bcab5f40e3a30923/index.js?at=master
+ * https://www.npmjs.com/package/google-play-purchase-validator
  * https://github.com/machadogj/node-google-bigquery
  * https://github.com/extrabacon/google-oauth-jwt/blob/master/lib/request-jwt.js
 
