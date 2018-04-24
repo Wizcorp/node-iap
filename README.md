@@ -161,6 +161,16 @@ or `latestReceiptInfo` property.
 			"is_trial_period": "true"
 		},
 	],
+	"pendingRenewalInfo": [
+		{
+			"expiration_intent":"1",
+			"auto_renew_product_id":"abc",
+			"original_transaction_id":"120000233230473",
+			"is_in_billing_retry_period":"0",
+			"product_id":"abc",
+			"auto_renew_status":"0"
+		}
+	],
 	"transactionId": "120000233230473",
 	"productId": "abc",
 	"platform": "apple",
