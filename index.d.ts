@@ -20,4 +20,8 @@ interface Response {
     expirationDate: number,
 }
 
-export function verifyPayment (platform: Platform, payment: Payment, callback: (error: string, response: Response) => void);
+export function verifyPayment (
+    platform: Platform,
+    payment: Payment,
+    callback: (error: string, response: Response & any) => void
+);
