@@ -8,62 +8,36 @@ var platforms = {
 };
 
 
-exports.verifyPayment = function (platform, payment, cb) {
-	function syncError(error) {
-		process.nextTick(function () {
-			cb(error);
-		});
-	}
-
-	if (!payment) {
-		return syncError(new Error('No payment given'));
-	}
-
-	var engine = platforms[platform];
-
-	if (!engine) {
-		return syncError(new Error('Platform ' + platform + ' not recognized'));
-	}
-
-	engine.verifyPayment(payment, function (error, result) {
-		if (error) {
-			return cb(error);
+function makeMethod(methodName) {
+	exports[methodName] = function (platform, payment, cb) {
+		function asyncError(message) {
+			var error = new Error(message);
+			// this will cause the stack trace to start at the place where asyncError
+			// is called
+			error.captureStackTrace(error, asyncError);
+			process.nextTick(cb, error);
 		}
 
-		result.platform = platform;
-
-		cb(null, result);
-	});
-};
-
-
-exports.cancelSubscription = function (platform, payment, cb) {
-	function syncError(error) {
-		process.nextTick(function () {
-			cb(error);
-		});
-	}
-
-	if (!payment) {
-		return syncError(new Error('No payment given'));
-	}
-
-	var engine = platforms[platform];
-
-	if (!engine) {
-		return syncError(new Error('Platform ' + platform + ' not recognized'));
-	}
-
-	if (!engine.cancelSubscription) {
-		return syncError(new Error('Platform ' + platform +
-			' does not have cancelSubscription method'));
-	}
-
-	engine.cancelSubscription(payment, function (error, result) {
-		if (error) {
-			return cb(error);
+		if (!payment) {
+			return asyncError('No payment given');
 		}
 
-		cb(null, result);
-	});
-};
+		var engine = platforms[platform];
+
+		if (!engine) {
+			return asyncError('Platform ' + platform + ' not recognized');
+		}
+
+		if (!engine[methodName]) {
+			return asyncError(
+				'Platform ' + platform + ' does not have a ' + methodName + ' method'
+			);
+		}
+
+		engine[methodName](payment, cb);
+	};
+}
+
+makeMethod('verifyPayment');
+
+makeMethod('cancelSubscription');
