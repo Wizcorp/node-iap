@@ -13,7 +13,7 @@ npm install iap
 
 ## Usage
 
-Only a single method is exposed to verify purchase receipts:
+### Initialisation
 
 ```javascript
 var iap = require('iap');
@@ -29,7 +29,13 @@ var payment = {
 	userId: 'user id', // required, if amazon
 	devToken: 'developer id' // required, if roku
 };
+```
 
+### Purchase verification ( all platforms )
+
+A single method is exposed to verify purchase receipts:
+
+```javascript
 iap.verifyPayment(platform, payment, function (error, response) {
 	/* your code */
 });
@@ -37,6 +43,19 @@ iap.verifyPayment(platform, payment, function (error, response) {
 
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
 the next chapter for more information on the format.
+
+### Subscription cancellation ( Google Play only )
+
+Google exposes [an API for server side cancellation](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/cancel) of recurring suscriptions. This might be
+be used to enable users to easily cancel subscriptions from within the app ( without going
+to Play Store ), or to allow subscriptions to be canceled by support people when users request
+it ( when for some reason the users are unable or unwilling to do so themselves).
+
+```javascript
+iap.cancelSubscription("google", payment, function (error, response) {
+	/* your code */
+});
+```
 
 ## Supported platforms
 
