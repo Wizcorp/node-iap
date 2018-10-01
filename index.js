@@ -34,7 +34,15 @@ function makeMethod(methodName) {
 			);
 		}
 
-		engine[methodName](payment, cb);
+		engine[methodName](payment, function (error, result) {
+			if (error) {
+				return cb(error);
+			}
+
+			result = result.platform = platform;
+
+			cb(null, result);
+		});
 	};
 }
 
