@@ -25,12 +25,12 @@ function makeMethod(methodName) {
 		var engine = platforms[platform];
 
 		if (!engine) {
-			return asyncError('Platform ' + platform + ' not recognized');
+			return asyncError(`Platform ${platform} not recognized`);
 		}
 
 		if (!engine[methodName]) {
 			return asyncError(
-				'Platform ' + platform + ' does not have a ' + methodName + ' method'
+				`Platform ${platform} does not have a ${methodName} method`
 			);
 		}
 
