@@ -64,6 +64,8 @@ exports.cancelSubscription = function (platform, payment, cb) {
 			return cb(error);
 		}
 
+		result.platform = platform;
+
 		cb(null, result);
 	});
 };
