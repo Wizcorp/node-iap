@@ -83,3 +83,35 @@ exports.verifyPayment = (platform, payment, cb) => {
 exports.cancelSubscription = (platform, payment, cb) => {
 	return (cb ? cancelSubscription(platform, payment, cb) : promisify(cancelSubscription)(platform, payment));
 };
+
+
+exports.deferSubscription = function (platform, payment, deferralInfo, cb) {
+	function syncError(error) {
+		process.nextTick(function () {
+			cb(error);
+		});
+	}
+
+	if (!payment) {
+		return syncError(new Error('No payment given'));
+	}
+
+	var engine = platforms[platform];
+
+	if (!engine) {
+		return syncError(new Error('Platform ' + platform + ' not recognized'));
+	}
+
+	if (!engine.deferSubscription) {
+		return syncError(new Error('Platform ' + platform +
+			' does not have deferSubscription method'));
+	}
+
+	engine.deferSubscription(payment, deferralInfo, function (error, result) {
+		if (error) {
+			return cb(error);
+		}
+
+		cb(null, result);
+	});
+};

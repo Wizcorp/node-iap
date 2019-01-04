@@ -85,6 +85,21 @@ iap.cancelSubscription(platform, payment)
 )
 ```
 
+### Subscription deferral ( Google Play only )
+
+Google exposes [an API for deferral](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/defer) of recurring suscriptions. This might be
+be used to extend a user's subscription purchase until a specified future expiration time ( useful to grant your users some free days or months ).
+
+```javascript
+var deferralInfo = {
+	expectedExpiryTimeMillis: 1546616722237,
+  desiredExpiryTimeMillis: 1547716722237,
+};
+iap.deferSubscription("google", payment, deferralInfo, function (error, response) {
+	/* your code */
+});
+```
+
 ## Supported platforms
 
 ### Amazon
