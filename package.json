@@ -25,7 +25,6 @@
   "author": "Ron Korving <rkorving@wizcorp.jp>",
   "license": "MIT",
   "dependencies": {
-    "form-urlencoded": "0.0.6",
     "jwt-simple": "0.5.6",
     "minimist": "0.0.8"
   },
