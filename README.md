@@ -65,7 +65,7 @@ be used to extend a user's subscription purchase until a specified future expira
 ```javascript
 var deferralInfo = {
 	expectedExpiryTimeMillis: 1546616722237,
-  desiredExpiryTimeMillis: 1547716722237,
+	desiredExpiryTimeMillis: 1547716722237,
 };
 iap.deferSubscription("google", payment, deferralInfo, function (error, response) {
 	/* your code */
