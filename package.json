@@ -1,6 +1,6 @@
 {
   "name": "iap",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "In-app purchase validation for Apple, Google, Amazon, Roku",
   "main": "index.js",
   "scripts": {
