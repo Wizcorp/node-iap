@@ -36,6 +36,37 @@ exports.verifyPayment = function (platform, payment, cb) {
 	});
 };
 
+exports.verifyPayment = function (platform, payment) {
+	return new Promise(function(resolve, reject) {
+
+		function syncError(error) {
+			process.nextTick(function () {
+				reject(error);
+			});
+		}
+
+		if (!payment) {
+			return syncError(new Error('No payment given'));
+		}
+
+		var engine = platforms[platform];
+
+		if (!engine) {
+			return syncError(new Error('Platform ' + platform + ' not recognized'));
+		}
+
+		engine.verifyPayment(payment, function (error, result) {
+			if (error) {
+				return reject(error);
+			}
+
+			result.platform = platform;
+
+			resolve(null, result);
+		});
+
+	});
+};
 
 exports.cancelSubscription = function (platform, payment, cb) {
 	function syncError(error) {
