@@ -4,8 +4,7 @@
   "description": "In-app purchase validation for Apple, Google, Amazon, Roku",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "precommit": "npm test"
+    "test": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -31,5 +30,10 @@
   "devDependencies": {
     "eslint": "6.1.0",
     "husky": "3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
   }
 }
