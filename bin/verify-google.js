@@ -2,19 +2,19 @@
 
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'keyFile'], boolean: ['subscription'] });
+const fs = require('fs');
+const path = require('path');
+const argv = require('minimist')(process.argv.slice(2), { string: ['productId', 'packageName', 'receipt', 'keyFile'], boolean: ['subscription'] });
 
 if (argv.help) {
 	console.log('Usage: ./verfiy.js --productId=abc --packageName=my.app --receipt=\'receipt-data\' --keyFile=\'Google Play JSON key file\' --subscription=true');
 	process.exit(1);
 }
 
-var iap = require('../index.js');
+const iap = require('../index.js');
 
-var platform = 'google';
-var payment = argv;
+const platform = 'google';
+const payment = argv;
 
 payment.keyObject = fs.readFileSync(path.resolve(payment.keyFile));
 delete payment.keyFile;

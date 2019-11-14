@@ -1,11 +1,10 @@
 {
   "name": "iap",
-  "version": "0.9.1",
+  "version": "1.1.0",
   "description": "In-app purchase validation for Apple, Google, Amazon, Roku",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "precommit": "npm test"
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -25,12 +24,16 @@
   "author": "Ron Korving <rkorving@wizcorp.jp>",
   "license": "MIT",
   "dependencies": {
-    "form-urlencoded": "0.0.6",
-    "jwt-simple": "0.5.1",
+    "jwt-simple": "0.5.6",
     "minimist": "0.0.8"
   },
   "devDependencies": {
-    "eslint": "4.19.1",
-    "husky": "0.14.3"
+    "eslint": "6.1.0",
+    "husky": "3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
   }
 }

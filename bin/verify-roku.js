@@ -2,17 +2,17 @@
 
 'use strict';
 
-var argv = require('minimist')(process.argv.slice(2), { string: ['devToken', 'receipt'] });
+const argv = require('minimist')(process.argv.slice(2), { string: ['devToken', 'receipt'] });
 
 if (argv.help) {
 	console.log('Usage: ./verfiy.js --devToken=\'developer-id\' --receipt=\'transaction-data\'');
 	process.exit(1);
 }
 
-var iap = require('../index.js');
+const iap = require('../index.js');
 
-var platform = 'roku';
-var payment = argv;
+const platform = 'roku';
+const payment = argv;
 
 iap.verifyPayment(platform, payment, function (error, result) {
 	if (error) {

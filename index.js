@@ -1,6 +1,6 @@
 'use strict';
 
-var platforms = {
+const platforms = {
 	amazon: require('./lib/amazon'),
 	apple: require('./lib/apple'),
 	google: require('./lib/google'),
@@ -19,10 +19,10 @@ exports.verifyPayment = function (platform, payment, cb) {
 		return syncError(new Error('No payment given'));
 	}
 
-	var engine = platforms[platform];
+	const engine = platforms[platform];
 
 	if (!engine) {
-		return syncError(new Error('Platform ' + platform + ' not recognized'));
+		return syncError(new Error(`Platform ${platform} not recognized`));
 	}
 
 	engine.verifyPayment(payment, function (error, result) {
@@ -48,15 +48,15 @@ exports.cancelSubscription = function (platform, payment, cb) {
 		return syncError(new Error('No payment given'));
 	}
 
-	var engine = platforms[platform];
+	const engine = platforms[platform];
 
 	if (!engine) {
-		return syncError(new Error('Platform ' + platform + ' not recognized'));
+		return syncError(new Error(`Platform ${platform} not recognized`));
 	}
 
 	if (!engine.cancelSubscription) {
-		return syncError(new Error('Platform ' + platform +
-			' does not have cancelSubscription method'));
+		return syncError(new Error(`Platform ${platform
+		} does not have cancelSubscription method`));
 	}
 
 	engine.cancelSubscription(payment, function (error, result) {
