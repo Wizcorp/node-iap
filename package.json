@@ -1,6 +1,6 @@
 {
   "name": "iap",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "In-app purchase validation for Apple, Google, Amazon, Roku",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wizcorp/node-iap"
+    "url": "https://github.com/emma-app/node-iap"
   },
   "keywords": [
     "iap",
@@ -21,7 +21,16 @@
     "purchase",
     "itunes"
   ],
-  "author": "Ron Korving <rkorving@wizcorp.jp>",
+  "author": {
+    "name": "Ron Korving",
+    "email": "rkorving@wizcorp.jp"
+  },
+  "contributors": [
+    {
+      "name": "Varadh Kalidasan",
+      "email": "varadh@emma-app.com"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "jwt-simple": "0.5.6",
