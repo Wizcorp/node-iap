@@ -64,7 +64,7 @@ Google exposes [an API for deferral](https://developers.google.com/android-publi
 ```javascript
 var deferralInfo = {
 	expectedExpiryTimeMillis: 1546616722237,
-  desiredExpiryTimeMillis: 1547716722237,
+	desiredExpiryTimeMillis: 1547716722237,
 };
 iap.deferSubscription("google", payment, deferralInfo, function (error, response) {
 	/* your code */
