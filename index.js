@@ -80,15 +80,19 @@ exports.deferSubscription = function (platform, payment, deferralInfo, cb) {
 		return syncError(new Error('No payment given'));
 	}
 
-	var engine = platforms[platform];
+	if (!deferralInfo) {
+		return syncError(new Error('No deferralInfo given'));
+	}
+
+	const engine = platforms[platform];
 
 	if (!engine) {
-		return syncError(new Error('Platform ' + platform + ' not recognized'));
+		return syncError(new Error(`Platform ${platform} not recognized`));
 	}
 
 	if (!engine.deferSubscription) {
-		return syncError(new Error('Platform ' + platform +
-			' does not have deferSubscription method'));
+		return syncError(new Error(`Platform ${platform
+		} does not have deferSubscription method`));
 	}
 
 	engine.deferSubscription(payment, deferralInfo, function (error, result) {
