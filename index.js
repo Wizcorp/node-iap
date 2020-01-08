@@ -67,3 +67,39 @@ exports.cancelSubscription = function (platform, payment, cb) {
 		cb(null, result);
 	});
 };
+
+
+exports.deferSubscription = function (platform, payment, deferralInfo, cb) {
+	function syncError(error) {
+		process.nextTick(function () {
+			cb(error);
+		});
+	}
+
+	if (!payment) {
+		return syncError(new Error('No payment given'));
+	}
+
+	if (!deferralInfo) {
+		return syncError(new Error('No deferralInfo given'));
+	}
+
+	const engine = platforms[platform];
+
+	if (!engine) {
+		return syncError(new Error(`Platform ${platform} not recognized`));
+	}
+
+	if (!engine.deferSubscription) {
+		return syncError(new Error(`Platform ${platform
+		} does not have deferSubscription method`));
+	}
+
+	engine.deferSubscription(payment, deferralInfo, function (error, result) {
+		if (error) {
+			return cb(error);
+		}
+
+		cb(null, result);
+	});
+};
