@@ -33,12 +33,26 @@ var payment = {
 
 ### Purchase verification ( all platforms )
 
-A single method is exposed to verify purchase receipts:
+A method is exposed to verify purchase receipts:
 
 ```javascript
 iap.verifyPayment(platform, payment, function (error, response) {
 	/* your code */
 });
+```
+
+Or, if you prefer a promise-based alternative: 
+
+```javascript
+iap.verifyPayment(platform, payment)
+.then(
+    response => {	
+        /* your code */ 
+    },
+    error => {
+        /* your code */ 
+    }
+)
 ```
 
 The receipt you pass must conform to the requirements of the backend you are verifying with. Read
@@ -55,6 +69,20 @@ it ( when for some reason the users are unable or unwilling to do so themselves)
 iap.cancelSubscription("google", payment, function (error, response) {
 	/* your code */
 });
+```
+
+Or, if you prefer a promise-based alternative: 
+
+```javascript
+iap.cancelSubscription(platform, payment)
+.then(
+    response => {    
+        /* your code */ 
+    },
+    error => {
+        /* your code */ 
+    }
+)
 ```
 
 ## Supported platforms

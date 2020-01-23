@@ -7,8 +7,17 @@ const platforms = {
 	roku: require('./lib/roku')
 };
 
+const promisify = (fn) => {
+	return (...args) => {
+		return new Promise((resolve, reject) => {
+			fn(...args, (err, res) => {
+				return (err ? reject(err) : resolve(res));
+			});
+		});
+	};
+};
 
-exports.verifyPayment = function (platform, payment, cb) {
+function verifyPayment(platform, payment, cb) {
 	function syncError(error) {
 		process.nextTick(function () {
 			cb(error);
@@ -34,10 +43,9 @@ exports.verifyPayment = function (platform, payment, cb) {
 
 		cb(null, result);
 	});
-};
+}
 
-
-exports.cancelSubscription = function (platform, payment, cb) {
+function cancelSubscription(platform, payment, cb) {
 	function syncError(error) {
 		process.nextTick(function () {
 			cb(error);
@@ -66,4 +74,12 @@ exports.cancelSubscription = function (platform, payment, cb) {
 
 		cb(null, result);
 	});
+}
+
+exports.verifyPayment = (platform, payment, cb) => {
+	return (cb ? verifyPayment(platform, payment, cb) : promisify(verifyPayment)(platform, payment));
+};
+
+exports.cancelSubscription = (platform, payment, cb) => {
+	return (cb ? cancelSubscription(platform, payment, cb) : promisify(cancelSubscription)(platform, payment));
 };
